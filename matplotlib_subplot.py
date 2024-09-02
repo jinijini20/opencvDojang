@@ -15,21 +15,22 @@ if imgBGR1 is None or imgBGR2 is None \
         sys.exit("image load is failed") 
           
 imgBGR1=cv2.cvtColor(imgBGR1,cv2.COLOR_BGR2RGB)
-imgBGR1=cv2.cvtColor(imgBGR2,cv2.COLOR_BGR2RGB)
-imgBGR1=cv2.cvtColor(imgBGR3,cv2.COLOR_BGR2RGB)
-imgBGR1=cv2.cvtColor(imgBGR4,cv2.COLOR_BGR2RGB)
+imgBGR2=cv2.cvtColor(imgBGR2,cv2.COLOR_BGR2RGB)
+imgBGR3=cv2.cvtColor(imgBGR3,cv2.COLOR_BGR2RGB)
+imgBGR4=cv2.cvtColor(imgBGR4,cv2.COLOR_BGR2RGB)
 
 #matplotlib plt.subplots로 이미지를 출력
-figsize =(10,10)
+figsize =(7,7)
 fig, ax =plt.subplots(2,2, figsize=figsize)
-ax[0][0].axis='off'
-ax[0][1].axis='off'
-ax[1][0].axis='off'
-ax[1][1].axis='off'
+ax[0][0].axis=('off')
+ax[0][1].axis=('off')
+ax[1][0].axis=('off')
+ax[1][1].axis=('off')
 
 
-ax[0][0].imshow(imgBGR1)
-ax[0][1].imshow(imgBGR3) 
-ax[1][0].imshow(imgBGR4) 
-ax[1][1].imshow(imgBGR1)          
+ax[0][0].imshow(imgBGR1,aspect='auto')
+ax[0][1].imshow(imgBGR3,aspect='auto') 
+ax[1][0].imshow(imgBGR4,aspect='auto') 
+ax[1][1].imshow(imgBGR2,aspect='auto') 
+fig.canvas.manager.set_window_title('Sample windows')         
 plt.show()
