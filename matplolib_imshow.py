@@ -6,7 +6,7 @@ import cv2
 import sys
 from matplotlib import pyplot as plt
 
-filName ='data/cat.jpg'
+fileName ='data/cat.jpg'
 
 img=cv2.imread(fileName)
 
