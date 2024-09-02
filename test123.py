@@ -30,3 +30,5 @@ cv2.imshow('image_bgr', img_bgr)
 cv2.waitKey()
 #모든창을 다 닫는다
 cv2.destroyAllWindows()
+
+print(111111)
