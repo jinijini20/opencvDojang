@@ -8,19 +8,17 @@ from matplotlib import pyplot as plt
 
 fileName ='data/cat.jpg'
 
-img=cv2.imread(fileName)
+img = cv2.imread(fileName)
 
 if img is None:
     sys.exit("Image Load is failed")
     
 #opencv 모듈은 이미지를 읽어올때 컬러 스페이스의 순서
 #B,G,R
-#컬러 스페이스(채널 순서)를 바꿔주는 함수채널 순서를 바꿔주는 함수
+#컬러 스페이스(채널 순서)를 바꿔주는 함수
 imgRGB=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-
-
 #Matplotlib R,G,B 로 사용
 plt.imshow(imgRGB)
 #Matplotlib의 imshow에서 눈금을 표시 x
-plt.imshow("off")
+plt.axis("off")
 plt.show()
