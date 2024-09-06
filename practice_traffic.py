@@ -10,7 +10,7 @@ def on_trackbar(pos):
     print(hmin,hmax)
     # inRange함수에 적용
     # dst = cv2.inRange(src_hsv, (hmin,100,0), (hmax,255,255))
-    # 
+    
     
     # red검출 inRange
     mask_red1 = cv2.inRange(src_hsv,(0,100,0), (10,255,255))
@@ -47,8 +47,8 @@ def on_trackbar(pos):
         
 
 #fileName = 'data2/candies.png'
-fileName = 'data2/red.jpg'
-#fileName = 'data2/green.jpg'
+#fileName = 'data2/red.jpg'
+fileName = 'data2/green.jpg'
 #fileName = 'data2/yellow.jpg'
 
 src = cv2.imread(fileName)
