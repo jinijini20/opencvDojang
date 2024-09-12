@@ -38,13 +38,14 @@ import os
 
 impath = os.path.join(os.getcwd(),'dataArg')
 dataOrg = os.path.join(impath,'ex_1')
-filename= os.path.join(dataOrg,'brown_white.jpg')
-# print(filename)
+filename= os.path.join(dataOrg,'thermos_white.jpg')
+# print(filename)brown_white.jpg
 img = cv2.imread(filename)
 
 img_resize =cv2.resize(img,(224,224))
-img90 = cv2.rotate(img_resize,cv2.ROTATE_90_CLOCKWISE)
-img180 = cv2.rotate(img_resize,cv2.ROTATE_180)
+# cv2.imwrite('thermos_white_224x224.jpg',img_resize)
+# img90 = cv2.rotate(img_resize,cv2.ROTATE_90_CLOCKWISE)
+# img180 = cv2.rotate(img_resize,cv2.ROTATE_180)
 
 
 def rotate_image(image, angle):
@@ -63,24 +64,25 @@ def rotate_image(image, angle):
     return rotated_image
  
  
-cv2.imwrite('brown_white_224x224.jpg',img_resize)
- # 이미지 불러오기
+# cv2.imwrite('thermos_white_224x224.jpg',img_resize)
+#  # 이미지 불러오기
  
-img1 = cv2.imread('dataArg/brown_white_224x224.jpg')
+img1 = cv2.imread('dataArg/thermos_white_224x224.jpg')
 
 if img1 is None:
    sys.exit('Image load failed')
 
 # 이미지 회전 (45도)
 rotated_img = rotate_image(img1, 45)
+rotated_img2 = rotate_image(img1, -45)
 
-#  회전된 이미지 저장
+ #회전된 이미지 저장
 cv2.imshow('rotated_img',rotated_img)
-cv2.waitKey()
-cv2.imwrite('brown_white_45.jpg', rotated_img)
-cv2.imwrite('brown_white_90.jpg',img90)
-cv2.imwrite('brown_white_180.jpg',img180)
-cv2.imshow('brown_white_90',img90)
+cv2.imwrite('thermos_white_-45.jpg', rotated_img2)
+cv2.imwrite('thermos_white_45.jpg', rotated_img)
+# cv2.imwrite('brown_white_90.jpg',img90)
+# cv2.imwrite('brown_white_180.jpg',img180)
+# cv2.imshow('brown_white_90',img90)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
