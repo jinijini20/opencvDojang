@@ -22,11 +22,6 @@
 #8.데이터셋을 techable machine사이트에 올려서 테스트
 #9. 인식이 잘 안되는 케이스를 분석하고 케이스 추가 1-8에서 구현된 기능을 이용
 
-import cv2,sys
-import numpy as np
-import os
-
-
 # dataPath = os.path(os.getcwd(),'DataAug')
 # dataOrg = os.path.join(dataPath,'org')
 # fileName = os.path.join(dataOrg,'carkey_white.jpg')
@@ -37,8 +32,61 @@ import os
 # cv2.waitKey()
 # cv2.destroyAllWindows()
 
+import cv2,sys
+import numpy as np
+import os
 
-dataPath = os.path(os.getcwd(),'DataAug')
-dataOrg = os.path.join(dataPath,'ex_1')
-fileName = os.path.join(dataOrg,'silver_white.jpg')
-print(fileName)
+impath = os.path.join(os.getcwd(),'dataArg')
+dataOrg = os.path.join(impath,'ex_1')
+filename= os.path.join(dataOrg,'silver_white.jpg')
+# print(filename)
+img = cv2.imread(filename)
+
+img_resize =cv2.resize(img,(224,224))
+img90 = cv2.rotate(img_resize,cv2.ROTATE_90_CLOCKWISE)
+img180 = cv2.rotate(img_resize,cv2.ROTATE_180)
+
+
+def rotate_image(image, angle):
+    # 이미지의 크기 (height, width) 구하기
+    (h, w) = image.shape[:2]
+    
+    # 회전의 중심점 설정 (보통 이미지의 가운데)
+    center = (w // 2, h // 2)
+    
+    # 회전 변환 행렬 생성
+    rotation_matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
+    
+    # 이미지 회전
+    rotated_image = cv2.warpAffine(image, rotation_matrix, (w, h))
+    
+    return rotated_image
+ 
+ 
+ 
+ 
+ 
+ 
+ # 이미지 불러오기
+img = cv2.imread(img_resize)
+
+# 이미지 회전 (45도)
+rotated_img = rotate_image(img, 45)
+
+# # 회전된 이미지 저장
+# cv2.imwrite('rotated_image.jpg', rotated_img)
+
+
+
+cv2.imshow('rotated_img',rotated_img)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
+
+
+# cv2.imshow('resize',img_resize)
+# cv2.waitKey()
+# cv2.destroyAllWindows()
+
