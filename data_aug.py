@@ -38,7 +38,7 @@ import os
 
 impath = os.path.join(os.getcwd(),'dataArg')
 dataOrg = os.path.join(impath,'ex_1')
-filename= os.path.join(dataOrg,'silver_white.jpg')
+filename= os.path.join(dataOrg,'silver_wood.jpg')
 # print(filename)
 img = cv2.imread(filename)
 
@@ -62,23 +62,17 @@ def rotate_image(image, angle):
     
     return rotated_image
  
- 
- 
- 
- 
- 
  # 이미지 불러오기
-img = cv2.imread(img_resize)
+img = cv2.imread('dataArg/img_resize_224x224.jpg')
 
 # 이미지 회전 (45도)
 rotated_img = rotate_image(img, 45)
 
 # # 회전된 이미지 저장
-# cv2.imwrite('rotated_image.jpg', rotated_img)
-
-
-
-cv2.imshow('rotated_img',rotated_img)
+cv2.imwrite('silver_wood_45.jpg', rotated_img)
+cv2.imwrite('silver_wood_90',img90)
+cv2.imwrite('silver_wood_180',img180)
+cv2.imshow('silver_wood_90',img90)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
@@ -86,7 +80,4 @@ cv2.destroyAllWindows()
 
 
 
-# cv2.imshow('resize',img_resize)
-# cv2.waitKey()
-# cv2.destroyAllWindows()
 
