@@ -22,30 +22,11 @@
 #8.데이터셋을 techable machine사이트에 올려서 테스트
 #9. 인식이 잘 안되는 케이스를 분석하고 케이스 추가 1-8에서 구현된 기능을 이용
 
-# dataPath = os.path(os.getcwd(),'DataAug')
-# dataOrg = os.path.join(dataPath,'org')
-# fileName = os.path.join(dataOrg,'carkey_white.jpg')
-# # print(fileName)
-# img = cv2.imread(fileName)
-# img_resize = cv2.resize(img,(224,224))
-# cv2.imshow('resize',img_resize)
-# cv2.waitKey()
-# cv2.destroyAllWindows()
 
+# 1.패키지 가져오기
 import cv2,sys
 import numpy as np
 import os
-
-impath = os.path.join(os.getcwd(),'dataArg')
-dataOrg = os.path.join(impath,'ex_1')
-filename= os.path.join(dataOrg,'thermos_white.jpg')
-# print(filename)brown_white.jpg
-img = cv2.imread(filename)
-
-img_resize =cv2.resize(img,(224,224))
-# cv2.imwrite('thermos_white_224x224.jpg',img_resize)
-# img90 = cv2.rotate(img_resize,cv2.ROTATE_90_CLOCKWISE)
-# img180 = cv2.rotate(img_resize,cv2.ROTATE_180)
 
 
 def rotate_image(image, angle):
@@ -62,29 +43,44 @@ def rotate_image(image, angle):
     rotated_image = cv2.warpAffine(image, rotation_matrix, (w, h))
     
     return rotated_image
- 
- 
-# cv2.imwrite('thermos_white_224x224.jpg',img_resize)
-#  # 이미지 불러오기
- 
-img1 = cv2.imread('dataArg/thermos_white_224x224.jpg')
 
-if img1 is None:
+
+# 2. 경로설정
+impath = os.path.join(os.getcwd(),'image_aug')
+dataOrg = os.path.join(impath,'original')
+filename= os.path.join(dataOrg,'brown_wood.jpg')
+# print(filename)brown_white.jpg
+filename= os
+
+
+
+# 이미지 불러오기
+img = cv2.imread(filename)
+
+if img is None:
    sys.exit('Image load failed')
 
-# 이미지 회전 (45도)
-rotated_img = rotate_image(img1, 45)
-rotated_img2 = rotate_image(img1, -45)
+# 이미지 처리
+img_resize =cv2.resize(img,(224,224))
 
- #회전된 이미지 저장
-cv2.imshow('rotated_img',rotated_img)
-cv2.imwrite('thermos_white_-45.jpg', rotated_img2)
-cv2.imwrite('thermos_white_45.jpg', rotated_img)
+
+ 
+print(filename)
+# # # 이미지 회전 (45도)
+# for angle in range(15,360,15):
+#    rotated_img = rotate_image(img1, 45)
+#    cv2.imwrite('')
+
+#  #회전된 이미지 저장
+# cv2.imshow('rotated_img',rotated_img)
+# cv2.imwrite('thermos_white_-45.jpg', rotated_img2)
+# cv2.imwrite('thermos_white_45.jpg', rotated_img)
 # cv2.imwrite('brown_white_90.jpg',img90)
-# cv2.imwrite('brown_white_180.jpg',img180)
+# # cv2.imwrite('brown_white_180.jpg',img180)
 # cv2.imshow('brown_white_90',img90)
-cv2.waitKey()
-cv2.destroyAllWindows()
+# cv2.waitKey()
+# cv2.destroyAllWindows()
+
 
 
 
